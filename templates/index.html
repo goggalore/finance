@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Finance
+{% endblock %} 
+
+{% block main %}
+
+<form action="{{ url_for('index') }}" method="get">
+    <div class="container">
+        <main>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Symbol</td> 
+                        <td>Name</td>
+                        <td>Shares</td>
+                        <td>Price</td>
+                        <td>TOTAL</td>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>{{ total }}</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for stocks in portfolio %}
+                    <tr>
+                        <td>{{ stocks["symbol"] }}</td>
+                        <td>{{ stocks["name"] }}</td>
+                        <td>{{ stocks["shares"] }}</td>
+                        <td>{{ stocks["price"] }}</td>
+                        <td>{{ stocks["total"] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4">CASH</td>
+                        <td>{{ cash }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</form> 
+
+{% endblock %}

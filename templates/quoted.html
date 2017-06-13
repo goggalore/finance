@@ -1,0 +1,29 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    Quotes Result
+{% endblock %}
+
+{% block main %} 
+    <form action="{{ url_for('quote') }}" method="get">
+        <div class="container">
+            <main>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Symbol</td>
+                            <td>Name</td>
+                            <td>Price</td>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                    <tr>
+                        <td>{{ symbol }}</td>
+                        <td>{{ name }}</td>
+                        <td>{{ price }}</td>
+                    </tr>
+                </table>
+            </main>
+        </div>
+    
+{% endblock %}
